@@ -29,7 +29,7 @@ namespace CSSharpFixes.Config
         private bool enableWaterFix = true;
         private bool enableTriggerPushFix = false;
         private bool enableCPhysBoxUseFix = false;
-        //private bool enableNavmeshLookupLagFix = false; // Commented out since it seems to cause crashes every time I test it...
+        private bool enableNavmeshLookupLagFix = false;
         private bool enableNoBlock = false;
         private bool disableTeamMessages = false;
         private bool disableSubTickMovement = false;
@@ -102,8 +102,7 @@ namespace CSSharpFixes.Config
             }
         }
 
-        // Commented out since it seems to cause crashes every time I test it...
-        /* public bool EnableNavmeshLookupLagFix
+        public bool EnableNavmeshLookupLagFix
         {
             get => enableNavmeshLookupLagFix;
             set
@@ -114,7 +113,7 @@ namespace CSSharpFixes.Config
                     OnPropertyChanged();
                 }
             }
-        } */
+        }
 
         public bool EnableNoBlock
         {

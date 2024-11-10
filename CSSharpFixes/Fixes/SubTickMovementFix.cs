@@ -31,9 +31,9 @@ public class SubTickMovementFix: BaseFix
     {
         Name = "SubTickMovementFix";
         ConfigurationProperty = "DisableSubTickMovement";
-        DetourHandlerNames =
-        [
+        DetourHandlerNames = new List<string>
+        {
             "ProcessUserCmdsHandler"
-        ];
+        };
     }
 }

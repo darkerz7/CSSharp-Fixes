@@ -25,9 +25,9 @@ public class MovementUnlockerFix: BaseFix
     {
         Name = "MovementUnlockerFix";
         ConfigurationProperty = "EnableMovementUnlocker";
-        PatchNames =
-        [
+        PatchNames = new List<string>()
+        {
             "ServerMovementUnlock"
-        ];
+        };
     }
 }

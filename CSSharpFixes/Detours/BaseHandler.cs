@@ -59,7 +59,7 @@ public abstract class BaseHandler
         if (buildMethod == null || !buildMethod.IsStatic)
             throw new InvalidOperationException($"Class {typeof(T).Name} must define a static Build method.");
         
-        return buildMethod.Invoke(null, [logger]) as T ?? throw new InvalidOperationException();
+        return buildMethod.Invoke(null, new object[] { logger }) as T ?? throw new InvalidOperationException();
     }
 }
 

@@ -25,9 +25,9 @@ public class NavmeshLookupLagFix: BaseFix
     {
         Name = "NavmeshLookupLagFix";
         ConfigurationProperty = "EnableNavmeshLookupLagFix";
-        PatchNames =
-        [
+        PatchNames = new List<string>()
+        {
             "BotNavIgnore"
-        ];
+        };
     }
 }

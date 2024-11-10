@@ -25,9 +25,9 @@ public class TriggerPushFix: BaseFix
     {
         Name = "TriggerPushFix";
         ConfigurationProperty = "EnableTriggerPushFix";
-        DetourHandlerNames =
-        [
+        DetourHandlerNames = new List<string>
+        {
             "TriggerPushTouchHandler"
-        ];
+        };
     }
 }

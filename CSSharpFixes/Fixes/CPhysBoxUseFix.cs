@@ -25,9 +25,9 @@ public class CPhysBoxUseFix: BaseFix
     {
         Name = "CPhysBoxUseFix";
         ConfigurationProperty = "EnableCPhysBoxUseFix";
-        PatchNames =
-        [
+        PatchNames = new List<string>()
+        {
             "CPhysBox_Use"
-        ];
+        };
     }
 }
