@@ -19,6 +19,9 @@
 
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
+using CounterStrikeSharp.API.Modules.Commands;
+using CounterStrikeSharp.API.Modules.Entities;
+using CounterStrikeSharp.API.Modules.UserMessages;
 using CSSharpFixes.Fixes;
 using CSSharpFixes.Fixes.Interfaces;
 using Microsoft.Extensions.Logging;
@@ -76,8 +79,35 @@ public class FixManager(PatchManager patchManager, DetourManager detourManager, 
             if(fix is ITickable tickable) tickable.OnTick(players);
         }
     }
-    
-    public void Start()
+
+	public HookResult OnChatMessage(UserMessage um)
+    {
+		foreach (BaseFix fix in _fixes)
+		{
+			if (fix is TeamMessagesFix teammessagefix) return teammessagefix.OnChatMessage(um);
+		}
+		return HookResult.Continue;
+	}
+
+	public HookResult Listener_RadioCommands(CCSPlayerController? player, CommandInfo info)
+	{
+		foreach (BaseFix fix in _fixes)
+		{
+			if (fix is TeamMessagesFix teammessagefix) return teammessagefix.Listener_RadioCommands(player, info);
+		}
+		return HookResult.Continue;
+	}
+
+	public HookResult Listener_Chatwheel(CCSPlayerController? player, CommandInfo info)
+	{
+		foreach (BaseFix fix in _fixes)
+		{
+			if (fix is TeamMessagesFix teammessagefix) return teammessagefix.Listener_Chatwheel(player, info);
+		}
+		return HookResult.Continue;
+	}
+
+	public void Start()
     {
         logger.LogInformation("[CSSharpFixes][FixManager][Start()]");
         
