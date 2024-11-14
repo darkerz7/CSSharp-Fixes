@@ -29,7 +29,7 @@ public class WaterFix: BaseFix
         {
             "FixWaterFloorJump",
             "WaterLevelGravity",
-            "CategorizeUnderwater"
+            //"CategorizeUnderwater"
         };
     }
 }

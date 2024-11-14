@@ -13,13 +13,6 @@
       "linux": "C8 42 66 0F EF FF 0F 2F 7B 5C"
     }
   },
-  "CategorizeUnderwater": {
-    "signatures": {
-      "library": "server",
-      "windows": "75 ? B3 01 EB ? 32 DB 45 32 ?",
-      "linux": "0F 45 C2 4D 85 C0 0F 95 C2 20 C2"
-    }
-  },
   "CPhysBox_Use": {
     "signatures": {
       "library": "server",

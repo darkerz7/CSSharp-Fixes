@@ -60,7 +60,7 @@ public class PatchManager
             // Water Fix
             AddServerPatch("FixWaterFloorJump", "CheckJumpButtonWater", "11 43");
             AddServerPatch("WaterLevelGravity", "WaterLevelGravity", "3C 02");
-            AddServerPatch("CategorizeUnderwater", "CategorizeUnderwater", "0F 42");
+            //AddServerPatch("CategorizeUnderwater", "CategorizeUnderwater", "0F 42");
             
             // CPhysBox_Use Fix
             // Make func_physbox pass itself as the caller in OnPlayerUse
@@ -82,7 +82,7 @@ public class PatchManager
             // Water Fix
             AddServerPatch("FixWaterFloorJump", "CheckJumpButtonWater", "11 43");
             AddServerPatch("WaterLevelGravity", "WaterLevelGravity", "3C 02");
-            AddServerPatch("CategorizeUnderwater", "CategorizeUnderwater", "73");
+            //AddServerPatch("CategorizeUnderwater", "CategorizeUnderwater", "73");
             
             // CPhysBox_Use Fix
             // Make func_physbox pass itself as the caller in OnPlayerUse
