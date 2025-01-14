@@ -23,7 +23,7 @@ namespace CSSharpFixes.Schemas.Protobuf;
 
 public class CUserCmd: Interfaces.ISizeable
 {
-    public static ulong Size() => RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? (ulong)0x98 : (ulong)0x80;
+    public static ulong Size() => RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? (ulong)0x98 : (ulong)0x90;
     
     private IntPtr _address;
     private Dictionary<string, ulong> _offsets = new();
