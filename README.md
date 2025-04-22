@@ -25,6 +25,7 @@ CS# plugins. (Unlike cs2fixes, every feature in this plugin is optional and can 
 - css_fixes_disable_sub_tick_movement: Enable or disable the disable subtick movement feature. Default is 0.
 - css_fixes_enable_movement_unlocker: Enable or disable the movement unlocker feature. Default is 0.
 - css_fixes_enforce_full_alltalk: Enable or disable the force full alltalk feature. Default is 0.
+- css_fixes_navmesh_lookup_lag_fix: Enable or disable lag fix with map-integrated navmeshes(Enable bots). Default is 0.
 
 ## Why make this plugin when CS2Fixes already exists?
 
