@@ -18,7 +18,6 @@
 */
 
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Modules.Utils;
 
 namespace CSSharpFixes.Extensions;
 
@@ -31,7 +30,7 @@ public static class CGameSceneNodeExtensions
         // matrix3x4_t
         float[,] mat = new float[3, 4];
 
-        QAngle angles = sceneNode.AbsRotation;
+		System.Numerics.Vector3 angles = (System.Numerics.Vector3)sceneNode.AbsRotation;
         float sr, sp, sy, cr, cp, cy;
         
         Utils.SinCos(Utils.DegToRad(angles.Y), out sy, out cy); // YAW
