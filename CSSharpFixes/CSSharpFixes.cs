@@ -19,11 +19,13 @@
 
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
+using CounterStrikeSharp.API.Core.Attributes;
 using CSSharpFixes.Config;
 using CSSharpFixes.Managers;
 
 namespace CSSharpFixes;
 
+[MinimumApiVersion(330)]
 public partial class CSSharpFixes: BasePlugin
 {
     public override string ModuleName => _moduleInformation.ModuleName;

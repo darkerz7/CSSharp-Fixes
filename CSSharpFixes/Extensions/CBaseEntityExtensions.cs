@@ -18,9 +18,7 @@
 */
 
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Modules.Memory;
 using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
-using CounterStrikeSharp.API.Modules.Utils;
 
 namespace CSSharpFixes.Extensions;
 
@@ -36,7 +34,7 @@ public static class CBaseEntityExtensions
     }
     
     // Add a setter for BaseVelocity to CBaseEntity so it can be set with a Vector in 1 line
-    public static void SetBaseVelocity(this CBaseEntity? baseEntity, Vector baseVelocity)
+    public static void SetBaseVelocity(this CBaseEntity? baseEntity, System.Numerics.Vector3 baseVelocity)
     {
         if(baseEntity is null) return;
         if(!baseEntity.IsValid) return;
@@ -45,11 +43,12 @@ public static class CBaseEntityExtensions
         baseEntity.BaseVelocity.Z = baseVelocity.Z;
     }
     
-    public static void TeleportPositionOnly(this CBaseEntity? baseEntity, Vector position)
+    public static void TeleportPositionOnly(this CBaseEntity? baseEntity, System.Numerics.Vector3 position)
     {
         if(baseEntity is null) return;
         if(!baseEntity.IsValid) return;
-        VirtualFunction.CreateVoid<IntPtr, IntPtr, IntPtr, IntPtr>(baseEntity.Handle, GameData.GetOffset("CBaseEntity_Teleport"))(
-            baseEntity.Handle, position.Handle, IntPtr.Zero, IntPtr.Zero);
+        baseEntity.Teleport(position);
+        /*VirtualFunction.CreateVoid<IntPtr, IntPtr, IntPtr, IntPtr>(baseEntity.Handle, GameData.GetOffset("CBaseEntity_Teleport"))(
+            baseEntity.Handle, position.Handle, IntPtr.Zero, IntPtr.Zero);*/
     }
 }

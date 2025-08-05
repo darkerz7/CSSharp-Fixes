@@ -55,7 +55,7 @@ public static class CGameSceneNodeExtensions
         mat[1, 2] = sp * crsy - srcy;
         mat[2, 2] = cr * cp;
 
-        Vector pos = sceneNode.AbsOrigin;
+		System.Numerics.Vector3 pos = (System.Numerics.Vector3)sceneNode.AbsOrigin;
         mat[0, 3] = pos.X;
         mat[1, 3] = pos.Y;
         mat[2, 3] = pos.Z;

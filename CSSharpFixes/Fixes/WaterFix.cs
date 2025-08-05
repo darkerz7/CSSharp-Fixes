@@ -27,9 +27,7 @@ public class WaterFix: BaseFix
         ConfigurationProperty = "EnableWaterFix";
         PatchNames = new List<string>
         {
-            "FixWaterFloorJump",
-            "WaterLevelGravity",
-            //"CategorizeUnderwater"
+            "FixWaterFloorJump"
         };
     }
 }

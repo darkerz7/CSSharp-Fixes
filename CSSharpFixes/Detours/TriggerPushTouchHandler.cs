@@ -19,7 +19,6 @@
 
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Modules.Memory;
 using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using CounterStrikeSharp.API.Modules.Utils;
 using CSSharpFixes.Extensions;
@@ -104,20 +103,20 @@ public class TriggerPushTouchHandler : PreHandler
         if(pushBodyComponent == null) return HookResult.Handled;
         CGameSceneNode? pushSceneNode = pushBodyComponent.SceneNode;
         if(pushSceneNode == null) return HookResult.Handled;
-        
-        Vector vecAbsDir = new();
+
+		System.Numerics.Vector3 vecAbsDir = new();
         // matrix3x4_t
         float[,]? matTransform = pushSceneNode.EntityToWorldTransform();
         if(matTransform == null) return HookResult.Handled;
-        
-        // _logger.LogInformation("[TriggerPushFix] moveType = {moveType}", moveType);
 
-        Vector vecPushDir = triggerPush.PushDirEntitySpace;
+		// _logger.LogInformation("[TriggerPushFix] moveType = {moveType}", moveType);
+
+		System.Numerics.Vector3 vecPushDir = (System.Numerics.Vector3)triggerPush.PushDirEntitySpace;
         // _logger.LogInformation("[TriggerPushFix] vecPushDir = {vecPushDir}", vecPushDir);
         Utils.VectorRotate(vecPushDir, matTransform, ref vecAbsDir);
-        // _logger.LogInformation("[TriggerPushFix] vecAbsDir = {vecAbsDir}", vecAbsDir);
+		// _logger.LogInformation("[TriggerPushFix] vecAbsDir = {vecAbsDir}", vecAbsDir);
 
-        Vector vecPush = vecAbsDir * triggerPush.Speed;
+		System.Numerics.Vector3 vecPush = vecAbsDir * triggerPush.Speed;
         // _logger.LogInformation("[TriggerPushFix] triggerPush.Speed = {triggerPushSpeed}", triggerPush.Speed);
         // _logger.LogInformation("[TriggerPushFix] vecPush = {vecPush}", vecPush);
 
@@ -128,16 +127,15 @@ public class TriggerPushTouchHandler : PreHandler
         // FL_BASEVELOCITY missing from CS# PlayerFlags Enum
         //https://github.com/alliedmodders/hl2sdk/blob/67ba01d05038f55448fa792c09c9aae3d0bb8263/public/const.h#L133
         const uint flBasevelocity = 1 << 23;
-        if((flags & flBasevelocity) > 0) vecPush += other.BaseVelocity;
+        if((flags & flBasevelocity) > 0) vecPush += (System.Numerics.Vector3)other.BaseVelocity;
         // _logger.LogInformation("[TriggerPushFix] vecPush = {vecPush}", vecPush);
         
         if(vecPush.Z > 0.0f && (flags & (uint)PlayerFlags.FL_ONGROUND) > 0)
         {
             other.SetGroundEntity(IntPtr.Zero);
-            Vector? origin = other.AbsOrigin;
-            if (origin != null)
+            if (other.AbsOrigin != null)
             {
-                origin.Z += 1.0f;
+				System.Numerics.Vector3 origin = (System.Numerics.Vector3)other.AbsOrigin with { Z = other.AbsOrigin.Z + 1.0f };
                 other.TeleportPositionOnly(origin);
             }
         }

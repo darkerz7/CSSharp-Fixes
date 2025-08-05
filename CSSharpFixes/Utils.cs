@@ -21,7 +21,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
-using CounterStrikeSharp.API.Modules.Utils;
 
 namespace CSSharpFixes;
 
@@ -223,7 +222,7 @@ public class Utils
         return (float)(Math.PI / 180) * degrees;
     }
     
-    public static void VectorRotate(Vector vecIn, float[,] matIn, ref Vector vecOut)
+    public static void VectorRotate(System.Numerics.Vector3 vecIn, float[,] matIn, ref System.Numerics.Vector3 vecOut)
     {
         vecOut.X = vecIn.X * matIn[0, 0] + vecIn.Y * matIn[0, 1] + vecIn.Z * matIn[0, 2];
         vecOut.Y = vecIn.X * matIn[1, 0] + vecIn.Y * matIn[1, 1] + vecIn.Z * matIn[1, 2];
