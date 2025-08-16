@@ -17,12 +17,17 @@
     this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace CSSharpFixes.Config;
+namespace CSSharpFixes.Fixes;
 
-public class ModuleInformation
+public class EmitSoundVolumeFix: BaseFix
 {
-    public string ModuleName => "CS#Fixes";
-    public string ModuleVersion => "1.1.1c";
-    public string ModuleAuthor => "hypnos <hyps.dev>, DarkerZ [RUS]";
-    public string ModuleDescription => "cs#fixes";
+    public EmitSoundVolumeFix()
+    {
+        Name = "EmitSoundVolumeFix";
+        ConfigurationProperty = "EnableEmitSoundVolumeFix";
+        PatchNames = new List<string>()
+        {
+			"EmitSndVolumeFix"
+		};
+    }
 }

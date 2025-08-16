@@ -89,6 +89,14 @@ public class FixManager(PatchManager patchManager, DetourManager detourManager, 
 		return HookResult.Continue;
 	}
 
+	public void Listener_OnEntityCreated(CEntityInstance entity)
+	{
+		foreach (BaseFix fix in _fixes)
+		{
+            if (fix is HammerIDFix hammeridfix) hammeridfix.Listener_OnEntityCreated(entity, logger);
+		}
+	}
+
 	public HookResult Listener_RadioCommands(CCSPlayerController? player, CommandInfo info)
 	{
 		foreach (BaseFix fix in _fixes)
@@ -121,7 +129,9 @@ public class FixManager(PatchManager patchManager, DetourManager detourManager, 
         _fixes.Add(new MovementUnlockerFix());
         _fixes.Add(new FullAllTalkFix());
         _fixes.Add(new EntityStringPurgeFix());
-    }
+		_fixes.Add(new HammerIDFix());
+		_fixes.Add(new EmitSoundVolumeFix());
+	}
     
     public void Stop()
     {

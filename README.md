@@ -14,6 +14,8 @@ CS# plugins. (Unlike cs2fixes, every feature in this plugin is optional and can 
 - Disable Subtick Movement: Disables sub-tick movement.
 - Movement Unlocker: Enables movement unlocker.
 - Force Full Alltalk: Enforces sv_full_alltalk 1.
+- HammerID Fix: Fixes a bug when the entity is missing m_sUniqueHammerID.
+- Emit Sound Volume Fix: Fixes the problem that volume is not being applied when using EmitSound function in any type of plugins.
 
 ## ConVars
 
@@ -26,6 +28,8 @@ CS# plugins. (Unlike cs2fixes, every feature in this plugin is optional and can 
 - css_fixes_enable_movement_unlocker: Enable or disable the movement unlocker feature. Default is 0.
 - css_fixes_enforce_full_alltalk: Enable or disable the force full alltalk feature. Default is 0.
 - css_fixes_navmesh_lookup_lag_fix: Enable or disable lag fix with map-integrated navmeshes(Enable bots). Default is 0.
+- css_fixes_hammerid_fix: Enable or disable the HammerID fix. Default is 0.
+- css_fixes_emit_sound_volume_fix: Enable or disable EmitSoundVolume fix. Default is 0.
 
 ## Why make this plugin when CS2Fixes already exists?
 

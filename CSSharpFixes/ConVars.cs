@@ -32,9 +32,11 @@ public partial class CSSharpFixes
     public FakeConVar<bool> DisableSubTickMovement = new("css_fixes_disable_sub_tick_movement", "Disables sub-tick movement.", false);
     public FakeConVar<bool> EnableMovementUnlocker = new("css_fixes_enable_movement_unlocker", "Enables movement unlocker.", false);
     public FakeConVar<bool> EnforceFullAlltalk = new("css_fixes_enforce_full_alltalk", "Enforces sv_full_alltalk 1.", false);
-    //public FakeConVar<bool> EnableEntityStringPurge = new("css_fixes_purge_entity_strings", "Enables purge of the EntityNames stringtable on new rounds", false); //TODO: NOT FINSIHED!
-    
-    private void RegisterConVars()
+	//public FakeConVar<bool> EnableEntityStringPurge = new("css_fixes_purge_entity_strings", "Enables purge of the EntityNames stringtable on new rounds", false); //TODO: NOT FINSIHED!
+	public FakeConVar<bool> EnableHammerIDFix = new("css_fixes_hammerid_fix", "Fixes a bug when the entity is missing m_sUniqueHammerID", false);
+	public FakeConVar<bool> EnableEmitSoundVolumeFix = new("css_fixes_emit_sound_volume_fix", "Fixes the problem that volume is not being applied when using EmitSound function in any type of plugins", false);
+
+	private void RegisterConVars()
     {
         EnableWaterFix.ValueChanged += (sender, value) => { _configuration.EnableWaterFix = value; };
         EnableTriggerPushFix.ValueChanged += (sender, value) => { _configuration.EnableTriggerPushFix = value; };
@@ -45,8 +47,10 @@ public partial class CSSharpFixes
         DisableSubTickMovement.ValueChanged += (sender, value) => { _configuration.DisableSubTickMovement = value; };
         EnableMovementUnlocker.ValueChanged += (sender, value) => { _configuration.EnableMovementUnlocker = value; };
         EnforceFullAlltalk.ValueChanged += (sender, value) => { _configuration.EnforceFullAlltalk = value; };
-        //EnableEntityStringPurge.ValueChanged += (sender, value) => { _configuration.EnableEntityStringPurge = value; }; //TODO: NOT FINSIHED!
-        
-        RegisterFakeConVars(typeof(ConVar));
+		//EnableEntityStringPurge.ValueChanged += (sender, value) => { _configuration.EnableEntityStringPurge = value; }; //TODO: NOT FINSIHED!
+		EnableHammerIDFix.ValueChanged += (sender, value) => { _configuration.EnableHammerIDFix = value; };
+		EnableEmitSoundVolumeFix.ValueChanged += (sender, value) => { _configuration.EnableEmitSoundVolumeFix = value; };
+
+		RegisterFakeConVars(typeof(ConVar));
     }
 }

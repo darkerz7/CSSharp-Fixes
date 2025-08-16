@@ -48,6 +48,19 @@
 			"linux": "55 48 8D 87 ? ? ? ? 48 89 E5 41 57 41 56 49 89 D6"
 		}
 	},
+	"EmitSoundVolumeFix": {
+		"signatures": {
+			"library": "server",
+			"windows": "41 B9 ? ? ? ? 4C 89 64 24 ? 49 8B D5",
+			"linux": "E8 ? ? ? ? F3 0F 6F 03 48 83 EC ? 45 31 C9 89 C2 45 31 C0 4C 89 E7"
+		}
+	},
+	"GetHammerUniqueId": {
+		"offsets": {
+			"windows": 115,
+			"linux": 114
+		}
+	},
 	"PassesTriggerFilters": {
 		"offsets": {
 			"windows": 269,

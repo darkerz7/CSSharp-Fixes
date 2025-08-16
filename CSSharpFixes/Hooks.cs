@@ -38,6 +38,7 @@ public partial class CSSharpFixes
         RegisterListener<Listeners.OnMapStart>(OnMapStart);
         RegisterListener<Listeners.OnServerPrecacheResources>(OnServerPrecacheResources);
         RegisterListener<Listeners.OnTick>(OnTick);
+		RegisterListener<Listeners.OnEntityCreated>(OnEntityCreated);
 
 		HookUserMessage(124, OnChatMessage, HookMode.Pre);
 		for (int i = 0; i < TeamMessagesFix.RadioArray.Length; i++)
@@ -52,6 +53,7 @@ public partial class CSSharpFixes
         RemoveListener<Listeners.OnMapEnd>(OnMapEnd);
         RemoveListener<Listeners.OnMapStart>(OnMapStart);
         RemoveListener<Listeners.OnServerPrecacheResources>(OnServerPrecacheResources);
+		RemoveListener<Listeners.OnEntityCreated>(OnEntityCreated);
 
 		UnhookUserMessage(124, OnChatMessage, HookMode.Pre);
 		for (int i = 0; i < TeamMessagesFix.RadioArray.Length; i++)
@@ -83,6 +85,7 @@ public partial class CSSharpFixes
         _eventManager.OnRoundStartPre(@event, info);
     
     private void OnTick() => _fixManager.OnTick();
+	private void OnEntityCreated(CEntityInstance entity) => _fixManager.Listener_OnEntityCreated(entity);
 
 	private HookResult OnChatMessage(UserMessage um) => _fixManager.OnChatMessage(um);
 

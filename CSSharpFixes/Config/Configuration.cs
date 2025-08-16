@@ -36,6 +36,8 @@ namespace CSSharpFixes.Config
         private bool enableMovementUnlocker = false;
         private bool enforceFullAlltalk = false;
         private bool enableEntityStringPurge = false;
+        private bool enableHammerIDFix = false;
+        private bool enableEmitSoundVolumeFix = false;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -192,5 +194,31 @@ namespace CSSharpFixes.Config
                 }
             }
         }
-    }
+
+		public bool EnableHammerIDFix
+		{
+			get => enableHammerIDFix;
+			set
+			{
+				if (enableHammerIDFix != value)
+				{
+					enableHammerIDFix = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		public bool EnableEmitSoundVolumeFix
+		{
+			get => enableEmitSoundVolumeFix;
+			set
+			{
+				if (enableEmitSoundVolumeFix != value)
+				{
+					enableEmitSoundVolumeFix = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+	}
 }

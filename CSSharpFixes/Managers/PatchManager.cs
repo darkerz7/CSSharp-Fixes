@@ -72,7 +72,10 @@ public class PatchManager
 			// BotNavIgnore Fix
 			// Linux BotNavIgnore patch is now very similar to Windows
 			AddServerPatch("BotNavIgnore", "BotNavIgnore", "E9 25 00 00 00 90");
-        }
+
+			// Emit Sound Volume Fix
+			AddServerPatch("EmitSndVolumeFix", "EmitSoundVolumeFix", "B8 E9 54 60 BD");
+		}
         else
         {
             // Water Fix
@@ -89,7 +92,10 @@ public class PatchManager
             
             // BotNavIgnore Fix
             AddServerPatch("BotNavIgnore", "BotNavIgnore", "E9 2C 00 00 00 90");
-        }
+
+			// Emit Sound Volume Fix
+			AddServerPatch("EmitSndVolumeFix", "EmitSoundVolumeFix", "41 B9 E9 54 60 BD");
+		}
     }
     
     private void AddServerPatch(string name, string signature, string bytesHex)
@@ -111,7 +117,7 @@ public class PatchManager
         }
         
         _patches[patch].PerformPatch();
-    }
+	}
     
     public void UndoPatch(string name)
     {
@@ -124,7 +130,7 @@ public class PatchManager
                 patch);
             return;
         }
-        
-        _patches[patch].UndoPatch();
+
+		_patches[patch].UndoPatch();
     }
 }
