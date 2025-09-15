@@ -22,7 +22,7 @@ namespace CSSharpFixes.Config;
 public class ModuleInformation
 {
     public string ModuleName => "CS#Fixes";
-    public string ModuleVersion => "1.1.1c";
+    public string ModuleVersion => "1.1.1d";
     public string ModuleAuthor => "hypnos <hyps.dev>, DarkerZ [RUS]";
     public string ModuleDescription => "cs#fixes";
 }
