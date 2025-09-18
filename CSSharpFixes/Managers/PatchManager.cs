@@ -88,7 +88,7 @@ public class PatchManager
             AddServerPatch("CPhysBox_Use", "CPhysBox_Use", "49 89 F8 90");
             
             // Server Movement Unlocker
-            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "EB");
+            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "E9 B9 00 00 00 90");
             
             // BotNavIgnore Fix
             AddServerPatch("BotNavIgnore", "BotNavIgnore", "E9 2C 00 00 00 90");
