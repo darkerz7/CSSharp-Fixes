@@ -1,45 +1,20 @@
-﻿/*
-    =============================================================================
-    CS#Fixes
-    Copyright (C) 2023-2024 Charles Barone <CharlesBarone> / hypnos <hyps.dev>
-    =============================================================================
-
-    This program is free software; you can redistribute it and/or modify it under
-    the terms of the GNU General Public License, version 3.0, as published by the
-    Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-    FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-    details.
-
-    You should have received a copy of the GNU General Public License along with
-    this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-using CounterStrikeSharp.API.Core;
+﻿using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Events;
 using Microsoft.Extensions.Logging;
 
 namespace CSSharpFixes.Managers;
 
-public class EventManager
+public class EventManager(ILogger<CSSharpFixes> logger)
 {
-    private readonly ILogger<CSSharpFixes> _logger;
+    private readonly ILogger<CSSharpFixes> _logger = logger;
     
-    private Dictionary<string, List<CSSharpFixes.GameEventHandler>> _events = new();
-    
-    public EventManager(ILogger<CSSharpFixes> logger)
+    private readonly Dictionary<string, List<CSSharpFixes.GameEventHandler>> _events = [];
+
+	public void Start()
     {
-        _logger = logger;
-    }
-    
-    public void Start()
-    {
-        _events.Add("OnRoundStart", new List<CSSharpFixes.GameEventHandler>());
-        _events.Add("OnPlayerSpawn", new List<CSSharpFixes.GameEventHandler>());
-        _events.Add("OnPlayerTeam", new List<CSSharpFixes.GameEventHandler>());
-        _events.Add("OnRoundStartPre", new List<CSSharpFixes.GameEventHandler>());
+        _events.Add("OnRoundStart", []);
+        _events.Add("OnPlayerSpawn", []);
+        _events.Add("OnPlayerTeam", []);
     }
     
     public void Stop()
@@ -99,7 +74,4 @@ public class EventManager
     
     public HookResult OnPlayerTeam(EventPlayerTeam @event, GameEventInfo info) =>
         ProcessEvent(@event, info, "OnPlayerTeam");
-    
-    public HookResult OnRoundStartPre(EventRoundPrestart @event, GameEventInfo info) =>
-        ProcessEvent(@event, info, "OnRoundStartPre");
 }

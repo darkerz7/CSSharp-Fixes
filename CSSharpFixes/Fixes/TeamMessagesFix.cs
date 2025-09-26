@@ -1,23 +1,4 @@
-﻿/*
-    =============================================================================
-    CS#Fixes
-    Copyright (C) 2023-2024 Charles Barone <CharlesBarone> / hypnos <hyps.dev>
-    =============================================================================
-
-    This program is free software; you can redistribute it and/or modify it under
-    the terms of the GNU General Public License, version 3.0, as published by the
-    Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-    FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-    details.
-
-    You should have received a copy of the GNU General Public License along with
-    this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-using CounterStrikeSharp.API;
+﻿using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Events;
@@ -76,7 +57,7 @@ public class TeamMessagesFix: BaseFix
 		return HookResult.Handled;
 	}
 
-	public static string[] RadioArray = new string[] {
+	public static readonly string[] RadioArray = [
 	"coverme",
 	"takepoint",
 	"holdpos",
@@ -106,8 +87,8 @@ public class TeamMessagesFix: BaseFix
 	"go_b",
 	"needrop",
 	"deathcry"
-	};
-	public static string[] MoneyMessageArray = new string[] {
+	];
+	private static readonly string[] MoneyMessageArray = [
 	"Player_Cash_Award_Kill_Teammate",
 	"Player_Cash_Award_Killed_VIP",
 	"Player_Cash_Award_Killed_Enemy_Generic",
@@ -164,13 +145,13 @@ public class TeamMessagesFix: BaseFix
 	"Team_Cash_Award_no_income_suicide",
 	"Team_Cash_Award_Generic",
 	"Team_Cash_Award_Custom"
-	};
-	public static string[] SavedbyArray = new string[] {
+	];
+	private static readonly string[] SavedbyArray = [
 	"Chat_SavePlayer_Savior",
 	"Chat_SavePlayer_Spectator",
 	"Chat_SavePlayer_Saved"
-	};
-	public static string[] TeamWarningArray = new string[] {
+	];
+	private static readonly string[] TeamWarningArray = [
 	"Cstrike_TitlesTXT_Game_teammate_attack",
 	"Cstrike_TitlesTXT_Game_teammate_kills",
 	"Cstrike_TitlesTXT_Hint_careful_around_teammates",
@@ -179,5 +160,5 @@ public class TeamMessagesFix: BaseFix
 	"SFUI_Notice_Game_teammate_kills",
 	"SFUI_Notice_Hint_careful_around_teammates",
 	"SFUI_Notice_Killed_Teammate"
-	};
+	];
 }

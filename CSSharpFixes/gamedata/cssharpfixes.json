@@ -23,7 +23,7 @@
 	"ServerMovementUnlock": {
 		"signatures": {
 			"library": "server",
-			"windows": "0F 86 B7 ? ? ? F3 0F 58 D4",
+			"windows": "0F 86 B0 ? ? ? F3 0F 58 D4",
 			"linux": "0F 87 ? ? ? ? F3 0F 10 35 ? ? ? ? F3 0F 11 B5 ? ? ? ? 48 89 DE"
 		}
 	},

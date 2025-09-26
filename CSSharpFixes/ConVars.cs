@@ -1,23 +1,4 @@
-﻿/*
-    =============================================================================
-    CS#Fixes
-    Copyright (C) 2023-2024 Charles Barone <CharlesBarone> / hypnos <hyps.dev>
-    =============================================================================
-
-    This program is free software; you can redistribute it and/or modify it under
-    the terms of the GNU General Public License, version 3.0, as published by the
-    Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-    FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-    details.
-
-    You should have received a copy of the GNU General Public License along with
-    this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-using CounterStrikeSharp.API.Modules.Cvars;
+﻿using CounterStrikeSharp.API.Modules.Cvars;
 
 namespace CSSharpFixes;
 
@@ -32,7 +13,6 @@ public partial class CSSharpFixes
     public FakeConVar<bool> DisableSubTickMovement = new("css_fixes_disable_sub_tick_movement", "Disables sub-tick movement.", false);
     public FakeConVar<bool> EnableMovementUnlocker = new("css_fixes_enable_movement_unlocker", "Enables movement unlocker.", false);
     public FakeConVar<bool> EnforceFullAlltalk = new("css_fixes_enforce_full_alltalk", "Enforces sv_full_alltalk 1.", false);
-	//public FakeConVar<bool> EnableEntityStringPurge = new("css_fixes_purge_entity_strings", "Enables purge of the EntityNames stringtable on new rounds", false); //TODO: NOT FINSIHED!
 	public FakeConVar<bool> EnableHammerIDFix = new("css_fixes_hammerid_fix", "Fixes a bug when the entity is missing m_sUniqueHammerID", false);
 	public FakeConVar<bool> EnableEmitSoundVolumeFix = new("css_fixes_emit_sound_volume_fix", "Fixes the problem that volume is not being applied when using EmitSound function in any type of plugins", false);
 
@@ -47,7 +27,6 @@ public partial class CSSharpFixes
         DisableSubTickMovement.ValueChanged += (sender, value) => { _configuration.DisableSubTickMovement = value; };
         EnableMovementUnlocker.ValueChanged += (sender, value) => { _configuration.EnableMovementUnlocker = value; };
         EnforceFullAlltalk.ValueChanged += (sender, value) => { _configuration.EnforceFullAlltalk = value; };
-		//EnableEntityStringPurge.ValueChanged += (sender, value) => { _configuration.EnableEntityStringPurge = value; }; //TODO: NOT FINSIHED!
 		EnableHammerIDFix.ValueChanged += (sender, value) => { _configuration.EnableHammerIDFix = value; };
 		EnableEmitSoundVolumeFix.ValueChanged += (sender, value) => { _configuration.EnableEmitSoundVolumeFix = value; };
 

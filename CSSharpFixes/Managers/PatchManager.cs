@@ -1,43 +1,18 @@
-﻿/*
-    =============================================================================
-    CS#Fixes
-    Copyright (C) 2023-2024 Charles Barone <CharlesBarone> / hypnos <hyps.dev>
-    =============================================================================
-
-    This program is free software; you can redistribute it and/or modify it under
-    the terms of the GNU General Public License, version 3.0, as published by the
-    Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-    FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-    details.
-
-    You should have received a copy of the GNU General Public License along with
-    this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using CounterStrikeSharp.API.Modules.Memory;
 using CSSharpFixes.Models;
 using Microsoft.Extensions.Logging;
 
 namespace CSSharpFixes.Managers;
 
-public class PatchManager
+public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes> logger)
 {
-    private List<Patch> _patches = new();
+    private readonly List<Patch> _patches = [];
     
-    private readonly GameDataManager _gameDataManager;
-    private readonly ILogger<CSSharpFixes> _logger;
-    
-    public PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes> logger)
-    {
-        _gameDataManager = gameDataManager;
-        _logger = logger;
-    }
+    private readonly GameDataManager _gameDataManager = gameDataManager;
+    private readonly ILogger<CSSharpFixes> _logger = logger;
 
-    public void Start()
+	public void Start()
     {
         LoadCommonPatches();
     }
@@ -88,7 +63,7 @@ public class PatchManager
             AddServerPatch("CPhysBox_Use", "CPhysBox_Use", "49 89 F8 90");
             
             // Server Movement Unlocker
-            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "E9 B8 00 00 00 90");
+            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "E9 B1 00 00 00 90");
             
             // BotNavIgnore Fix
             AddServerPatch("BotNavIgnore", "BotNavIgnore", "E9 2C 00 00 00 90");

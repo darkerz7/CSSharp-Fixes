@@ -1,23 +1,4 @@
-﻿/*
-    =============================================================================
-    CS#Fixes
-    Copyright (C) 2023-2024 Charles Barone <CharlesBarone> / hypnos <hyps.dev>
-    =============================================================================
-
-    This program is free software; you can redistribute it and/or modify it under
-    the terms of the GNU General Public License, version 3.0, as published by the
-    Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-    FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-    details.
-
-    You should have received a copy of the GNU General Public License along with
-    this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Text;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
@@ -30,9 +11,9 @@ public class Utils
     {
         if (string.IsNullOrEmpty(signatureName))
             throw new ArgumentException("Signature name must not be null or empty", nameof(signatureName));
-        
-        string? signature = null;
-        try
+
+		string? signature;
+		try
         {
             signature = GameData.GetSignature(signatureName);
         }
@@ -57,7 +38,7 @@ public class Utils
     {
         if (string.IsNullOrEmpty(src))
         {
-            return new List<byte>();
+            return [];
         }
 
         Func<char, byte> hexCharToByte = c =>
@@ -68,7 +49,7 @@ public class Utils
             return 0xFF; // Invalid hex character
         };
 
-        List<byte> result = new List<byte>();
+        List<byte> result = [];
         bool isCodeStyle = src[0] == '\\';
         string pattern = isCodeStyle ? "\\x" : " ";
         string wildcard = isCodeStyle ? "2A" : "?";
@@ -89,7 +70,7 @@ public class Utils
 
             string byteStr = str;
 
-            if (byteStr.Substring(0, wildcard.Length) == wildcard)
+            if (byteStr[..wildcard.Length] == wildcard)
             {
                 result.Add(0xFF); // Representing wildcard as 0xFF
                 continue;
@@ -97,7 +78,7 @@ public class Utils
 
             if (byteStr.Length < 2)
             {
-                return new List<byte>(); // Invalid byte length
+                return []; // Invalid byte length
             }
 
             byte high = hexCharToByte(byteStr[0]);
@@ -105,7 +86,7 @@ public class Utils
 
             if (high == 0xFF || low == 0xFF)
             {
-                return new List<byte>(); // Invalid hex character
+                return []; // Invalid hex character
             }
 
             result.Add((byte)((high << 4) | low));
@@ -127,7 +108,7 @@ public class Utils
             return (char)(b - 10 + 'A');
         };
 
-        StringBuilder result = new StringBuilder();
+        StringBuilder result = new();
         string pattern = useCodeStyle ? "\\x" : " ";
 
         foreach (byte b in bytes)
@@ -158,7 +139,7 @@ public class Utils
     
     public static List<byte> ReadBytesFromAddress(IntPtr address, int length)
     {
-        List<byte> result = new List<byte>();
+        List<byte> result = [];
         for (int i = 0; i < length; i++)
         {
             result.Add(ReadByteFromAddress(address + i));
@@ -179,18 +160,18 @@ public class Utils
         
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
         {
-            Memory.UnixMemoryUtils.PatchBytesAtAddress(address, bytes.ToArray(), patchSize);
+            Memory.UnixMemoryUtils.PatchBytesAtAddress(address, [.. bytes], patchSize);
         }
         else
         {
-            Memory.WinMemoryUtils.PatchBytesAtAddress(address, bytes.ToArray(), patchSize);
+            Memory.WinMemoryUtils.PatchBytesAtAddress(address, [.. bytes], patchSize);
         }
     }
     
     public static List<byte> FloatToByteArray(float value)
     {
         byte[] bytes = BitConverter.GetBytes(value);
-        return bytes.ToList();
+        return [.. bytes];
     }
     
     public static byte[] ReadMemory(IntPtr address, int size)

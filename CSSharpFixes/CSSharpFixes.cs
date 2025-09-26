@@ -1,7 +1,7 @@
 ﻿/*
     =============================================================================
     CS#Fixes
-    Copyright (C) 2023-2024 Charles Barone <CharlesBarone> / hypnos <hyps.dev>
+    Copyright (C) 2023-2025 Charles Barone <CharlesBarone> / hypnos <hyps.dev>
     =============================================================================
 
     This program is free software; you can redistribute it and/or modify it under
@@ -17,7 +17,6 @@
     this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes;
 using CSSharpFixes.Config;
@@ -26,37 +25,24 @@ using CSSharpFixes.Managers;
 namespace CSSharpFixes;
 
 [MinimumApiVersion(330)]
-public partial class CSSharpFixes: BasePlugin
+public partial class CSSharpFixes(ModuleInformation moduleInformation, GameDataManager gameDataManager, DetourManager detourManager,
+	PatchManager patchManager, EventManager eventManager, FixManager fixManager, Configuration configuration) : BasePlugin
 {
-    public override string ModuleName => _moduleInformation.ModuleName;
-    public override string ModuleVersion => _moduleInformation.ModuleVersion;
-    public override string ModuleAuthor => _moduleInformation.ModuleAuthor;
-    public override string ModuleDescription => _moduleInformation.ModuleDescription;
+    public override string ModuleName => ModuleInformation.ModuleName;
+    public override string ModuleVersion => ModuleInformation.ModuleVersion;
+    public override string ModuleAuthor => ModuleInformation.ModuleAuthor;
+    public override string ModuleDescription => ModuleInformation.ModuleDescription;
     
-    private readonly ModuleInformation _moduleInformation;
-    private readonly Configuration _configuration;
+    private readonly ModuleInformation _moduleInformation = moduleInformation;
+    private readonly Configuration _configuration = configuration;
     
-    private readonly GameDataManager _gameDataManager;
-    private readonly DetourManager _detourManager;
-    private readonly PatchManager _patchManager;
-    private readonly EventManager _eventManager;
-    private readonly FixManager _fixManager;
-    
-    public CSSharpFixes(ModuleInformation moduleInformation, GameDataManager gameDataManager, DetourManager detourManager,
-        PatchManager patchManager, EventManager eventManager, FixManager fixManager, Configuration configuration)
-    {
-        _moduleInformation = moduleInformation;
-        
-        _gameDataManager = gameDataManager;
-        _detourManager = detourManager;
-        _patchManager = patchManager;
-        _eventManager = eventManager;
-        _fixManager = fixManager;
-        
-        _configuration = configuration;
-    }
-    
-    public override void Load(bool hotReload)
+    private readonly GameDataManager _gameDataManager = gameDataManager;
+    private readonly DetourManager _detourManager = detourManager;
+    private readonly PatchManager _patchManager = patchManager;
+    private readonly EventManager _eventManager = eventManager;
+    private readonly FixManager _fixManager = fixManager;
+
+	public override void Load(bool hotReload)
     {
         RegisterHooks();
         RegisterConVars();
@@ -66,11 +52,6 @@ public partial class CSSharpFixes: BasePlugin
         _patchManager.Start();
         _fixManager.Start();
         _configuration.Start();
-        
-        if (hotReload)
-        {
-            OnMapStart(Server.MapName);
-        }
     }
 
     public override void Unload(bool hotReload)

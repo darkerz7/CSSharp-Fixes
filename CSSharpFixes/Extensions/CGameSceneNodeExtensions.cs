@@ -1,23 +1,4 @@
-﻿/*
-    =============================================================================
-    CS#Fixes
-    Copyright (C) 2023-2024 Charles Barone <CharlesBarone> / hypnos <hyps.dev>
-    =============================================================================
-
-    This program is free software; you can redistribute it and/or modify it under
-    the terms of the GNU General Public License, version 3.0, as published by the
-    Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-    FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-    details.
-
-    You should have received a copy of the GNU General Public License along with
-    this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-using CounterStrikeSharp.API.Core;
+﻿using CounterStrikeSharp.API.Core;
 
 namespace CSSharpFixes.Extensions;
 
@@ -31,11 +12,10 @@ public static class CGameSceneNodeExtensions
         float[,] mat = new float[3, 4];
 
 		System.Numerics.Vector3 angles = (System.Numerics.Vector3)sceneNode.AbsRotation;
-        float sr, sp, sy, cr, cp, cy;
-        
-        Utils.SinCos(Utils.DegToRad(angles.Y), out sy, out cy); // YAW
-        Utils.SinCos(Utils.DegToRad(angles.X), out sp, out cp); // PITCH
-        Utils.SinCos(Utils.DegToRad(angles.Z), out sr, out cr); // ROLL
+
+		Utils.SinCos(Utils.DegToRad(angles.Y), out float sy, out float cy); // YAW
+		Utils.SinCos(Utils.DegToRad(angles.X), out float sp, out float cp); // PITCH
+        Utils.SinCos(Utils.DegToRad(angles.Z), out float sr, out float cr); // ROLL
 
         mat[0, 0] = cp * cy;
         mat[1, 0] = cp * sy;
