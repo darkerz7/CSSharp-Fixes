@@ -3,7 +3,7 @@
 		"signatures": {
 			"library": "server",
 			"windows": "C8 42 EB ? 4C 39 67 30",
-			"linux": "C8 42 41 C7 85 ? ? ? ? ? ? ? ? E9 ? ? ? ? 4C 89 E7"
+			"linux": "C8 42 41 C7 85 ? ? ? ? ? ? ? ? E9 ? ? ? ? 48 89 DF"
 		}
 	},
 	"CPhysBox_Use": {
