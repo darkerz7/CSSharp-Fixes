@@ -3,7 +3,7 @@
 		"signatures": {
 			"library": "server",
 			"windows": "C8 42 EB ? 4C 39 67 30",
-			"linux": "C8 42 41 C7 85 ? ? ? ? ? ? ? ? E9 ? ? ? ? 48 89 DF"
+			"linux": "C8 42 41 C7 85 ? ? ? ? ? ? ? ? 41 C7 85 ? ? ? ? ? ? ? ? E9"
 		}
 	},
 	"CPhysBox_Use": {
@@ -23,8 +23,8 @@
 	"ServerMovementUnlock": {
 		"signatures": {
 			"library": "server",
-			"windows": "0F 86 B0 ? ? ? F3 0F 58 D4",
-			"linux": "0F 87 ? ? ? ? F3 0F 10 35 ? ? ? ? F3 0F 11 B5 ? ? ? ? 48 89 DE"
+			"windows": "0F 86 B0 ? ? ? F3 0F 58 D3",
+			"linux": "0F 87 ? ? ? ? F3 0F 10 35 ? ? ? ? F3 0F 11 B5 ? ? ? ? 4C 89 EE"
 		}
 	},
 	"ProcessUsercmds": {
