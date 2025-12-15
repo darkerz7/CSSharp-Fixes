@@ -35,7 +35,7 @@ public class NoBlockFix: BaseFix
         // logger.LogInformation("[CSSharpFixes][Fix][NoBlockFix][OnPlayerSpawn()]");
         CCSPlayerController player = new(playerSpawnEvent.Userid.Handle);
 
-        Server.NextFrame(() =>
+        Server.NextWorldUpdate(() =>
         {
             ApplyNoBlock(player);
         });
