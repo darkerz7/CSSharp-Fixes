@@ -63,7 +63,7 @@ public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes>
             AddServerPatch("CPhysBox_Use", "CPhysBox_Use", "49 89 F8 90");
             
             // Server Movement Unlocker
-            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "E9 B1 00 00 00 90");
+            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "E9 B0 00 00 00 90");
             
             // BotNavIgnore Fix
             AddServerPatch("BotNavIgnore", "BotNavIgnore", "E9 2C 00 00 00 90");
