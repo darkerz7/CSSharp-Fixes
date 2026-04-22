@@ -50,7 +50,10 @@ public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes>
 
 			// Emit Sound Volume Fix
 			AddServerPatch("EmitSndVolumeFix", "EmitSoundVolumeFix", "B8 E9 54 60 BD");
-		}
+
+            // HammerID Fix
+            AddServerPatch("SetSchemaHammerUniqueId", "SetSchemaHammerUniqueId", "EB");
+        }
         else
         {
             // Water Fix
@@ -70,7 +73,10 @@ public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes>
 
 			// Emit Sound Volume Fix
 			AddServerPatch("EmitSndVolumeFix", "EmitSoundVolumeFix", "41 B9 E9 54 60 BD");
-		}
+
+            // HammerID Fix
+            AddServerPatch("SetHammerId", "SetSchemaHammerUniqueId", "EB");
+        }
     }
     
     private void AddServerPatch(string name, string signature, string bytesHex)
