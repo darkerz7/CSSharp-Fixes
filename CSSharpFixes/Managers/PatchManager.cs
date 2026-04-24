@@ -52,7 +52,7 @@ public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes>
 			AddServerPatch("EmitSndVolumeFix", "EmitSoundVolumeFix", "B8 E9 54 60 BD");
 
             // HammerID Fix
-            AddServerPatch("SetSchemaHammerUniqueId", "SetSchemaHammerUniqueId", "EB");
+            AddServerPatch("SetHammerId", "SetSchemaHammerUniqueId", "EB");
         }
         else
         {
