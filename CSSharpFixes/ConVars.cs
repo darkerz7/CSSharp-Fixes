@@ -9,6 +9,7 @@ public partial class CSSharpFixes
     public FakeConVar<bool> EnableCPhysBoxUseFix = new("css_fixes_cphys_box_use_fix", "Fixes CPhysBox use. Make func_physbox pass itself as the caller in OnPlayerUse.", false);
     public FakeConVar<bool> EnableNavmeshLookupLagFix = new("css_fixes_navmesh_lookup_lag_fix", "Some maps with built navmeshes would cause tremendous lag.", false);
     public FakeConVar<bool> EnableNoBlock = new("css_fixes_no_block", "Prevent players from blocking each other. (Sets debris collision on every player).", false);
+    public FakeConVar<bool> EnableParticleManagerMsgFix = new("css_fixes_particle_manager_messages_fix", "Attempt to fix lag/client crashes with a ParticleManager msg blocker.", false);
     public FakeConVar<bool> DisableTeamMessages = new("css_fixes_disable_team_messages", "Disables team chat messages and wheel.", false);
     public FakeConVar<bool> DisableSubTickMovement = new("css_fixes_disable_sub_tick_movement", "Disables sub-tick movement.", false);
     public FakeConVar<bool> EnableMovementUnlocker = new("css_fixes_enable_movement_unlocker", "Enables movement unlocker.", false);
@@ -23,6 +24,7 @@ public partial class CSSharpFixes
         EnableCPhysBoxUseFix.ValueChanged += (sender, value) => { _configuration.EnableCPhysBoxUseFix = value; };
         EnableNavmeshLookupLagFix.ValueChanged += (sender, value) => { _configuration.EnableNavmeshLookupLagFix = value; };
         EnableNoBlock.ValueChanged += (sender, value) => { _configuration.EnableNoBlock = value; };
+        EnableParticleManagerMsgFix.ValueChanged += (sender, value) => { _configuration.EnableParticleManagerMsgFix = value; };
         DisableTeamMessages.ValueChanged += (sender, value) => { _configuration.DisableTeamMessages = value; };
         DisableSubTickMovement.ValueChanged += (sender, value) => { _configuration.DisableSubTickMovement = value; };
         EnableMovementUnlocker.ValueChanged += (sender, value) => { _configuration.EnableMovementUnlocker = value; };

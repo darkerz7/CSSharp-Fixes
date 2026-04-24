@@ -12,6 +12,7 @@ namespace CSSharpFixes.Config
         private bool enableCPhysBoxUseFix = false;
         private bool enableNavmeshLookupLagFix = false;
         private bool enableNoBlock = false;
+        private bool enableParticleManagerMsgFix = false;
         private bool disableTeamMessages = false;
         private bool disableSubTickMovement = false;
         private bool enableMovementUnlocker = false;
@@ -105,6 +106,19 @@ namespace CSSharpFixes.Config
                 if (enableNoBlock != value)
                 {
                     enableNoBlock = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool EnableParticleManagerMsgFix
+        {
+            get => enableParticleManagerMsgFix;
+            set
+            {
+                if (enableParticleManagerMsgFix != value)
+                {
+                    enableParticleManagerMsgFix = value;
                     OnPropertyChanged();
                 }
             }

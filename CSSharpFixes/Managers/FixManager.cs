@@ -57,7 +57,7 @@ public class FixManager(PatchManager patchManager, DetourManager detourManager, 
 		return HookResult.Continue;
 	}
 
-	public HookResult Listener_RadioCommands(CCSPlayerController? player, CommandInfo info)
+    public HookResult Listener_RadioCommands(CCSPlayerController? player, CommandInfo info)
 	{
 		foreach (BaseFix fix in _fixes)
 		{
@@ -75,7 +75,16 @@ public class FixManager(PatchManager patchManager, DetourManager detourManager, 
 		return HookResult.Continue;
 	}
 
-	public void Start()
+    public HookResult OnParticleManagerMessage(UserMessage um)
+    {
+        foreach (BaseFix fix in _fixes)
+        {
+            if (fix is ParticleManagerMsgFix particlemanagermessagefix) return particlemanagermessagefix.OnParticleManagerMessage(um);
+        }
+        return HookResult.Continue;
+    }
+
+    public void Start()
     {
         logger.LogInformation("[CSSharpFixes][FixManager][Start()]");
         
@@ -84,6 +93,7 @@ public class FixManager(PatchManager patchManager, DetourManager detourManager, 
         _fixes.Add(new CPhysBoxUseFix());
         _fixes.Add(new NavmeshLookupLagFix());
         _fixes.Add(new NoBlockFix());
+        _fixes.Add(new ParticleManagerMsgFix());
         _fixes.Add(new TeamMessagesFix());
         _fixes.Add(new SubTickMovementFix());
         _fixes.Add(new MovementUnlockerFix());

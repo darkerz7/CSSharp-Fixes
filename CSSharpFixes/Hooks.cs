@@ -18,7 +18,8 @@ public partial class CSSharpFixes
         RegisterListener<Listeners.OnServerPrecacheResources>(OnServerPrecacheResources);
 
 		HookUserMessage(124, OnChatMessage, HookMode.Pre);
-		for (int i = 0; i < TeamMessagesFix.RadioArray.Length; i++)
+        HookUserMessage(145, OnParticleManagerMessage, HookMode.Pre);
+        for (int i = 0; i < TeamMessagesFix.RadioArray.Length; i++)
 		{
 			AddCommandListener(TeamMessagesFix.RadioArray[i], Listener_RadioCommands, HookMode.Pre);
 		}
@@ -30,7 +31,8 @@ public partial class CSSharpFixes
         RemoveListener<Listeners.OnServerPrecacheResources>(OnServerPrecacheResources);
 
 		UnhookUserMessage(124, OnChatMessage, HookMode.Pre);
-		for (int i = 0; i < TeamMessagesFix.RadioArray.Length; i++)
+        UnhookUserMessage(145, OnParticleManagerMessage, HookMode.Pre);
+        for (int i = 0; i < TeamMessagesFix.RadioArray.Length; i++)
 		{
 			RemoveCommandListener(TeamMessagesFix.RadioArray[i], Listener_RadioCommands, HookMode.Pre);
 		}
@@ -55,8 +57,9 @@ public partial class CSSharpFixes
         _eventManager.OnPlayerTeam(@event, info);
 
 	private HookResult OnChatMessage(UserMessage um) => _fixManager.OnChatMessage(um);
+    private HookResult OnParticleManagerMessage(UserMessage um) => _fixManager.OnParticleManagerMessage(um);
 
-	private HookResult Listener_RadioCommands(CCSPlayerController? player, CommandInfo info) => _fixManager.Listener_RadioCommands(player, info);
+    private HookResult Listener_RadioCommands(CCSPlayerController? player, CommandInfo info) => _fixManager.Listener_RadioCommands(player, info);
 
 	private HookResult Listener_Chatwheel(CCSPlayerController? player, CommandInfo info) => _fixManager.Listener_Chatwheel(player, info);
 }
