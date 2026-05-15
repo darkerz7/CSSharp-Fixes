@@ -46,7 +46,7 @@ public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes>
 
 			// BotNavIgnore Fix
 			// Linux BotNavIgnore patch is now very similar to Windows
-			AddServerPatch("BotNavIgnore", "BotNavIgnore", "E9 25 00 00 00 90");
+			AddServerPatch("BotNavIgnore", "BotNavIgnore", "E9 22 00 00 00 90");
 
 			// Emit Sound Volume Fix
 			AddServerPatch("EmitSndVolumeFix", "EmitSoundVolumeFix", "B8 E9 54 60 BD");
