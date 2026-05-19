@@ -35,12 +35,6 @@ public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes>
             // Water Fix
             AddServerPatch("FixWaterFloorJump", "CheckJumpButtonWater", "11 43");
             
-            // CPhysBox_Use Fix
-            // Make func_physbox pass itself as the caller in OnPlayerUse
-            // pCaller = inputdata->pCaller ->  pCaller = this
-            // Linux: 	 mov rdx, [r12+8] 	->  mov rdx, rbx
-            AddServerPatch("CPhysBox_Use", "CPhysBox_Use", "48 89 DA 90 90");
-            
             // Server Movement Unlocker
             AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "90 90 90 90 90 90");
 
@@ -59,14 +53,8 @@ public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes>
             // Water Fix
             AddServerPatch("FixWaterFloorJump", "CheckJumpButtonWater", "11 43");
             
-            // CPhysBox_Use Fix
-            // Make func_physbox pass itself as the caller in OnPlayerUse
-            // pCaller = inputdata->pCaller ->  pCaller = this
-            // Windows:  mov r8, [rdi+8]  	->  mov r8, rbx
-            AddServerPatch("CPhysBox_Use", "CPhysBox_Use", "49 89 F8 90");
-            
             // Server Movement Unlocker
-            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "E9 B1 00 00 00 90");
+            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "E9 B0 00 00 00 90");
             
             // BotNavIgnore Fix
             AddServerPatch("BotNavIgnore", "BotNavIgnore", "E9 2C 00 00 00 90");

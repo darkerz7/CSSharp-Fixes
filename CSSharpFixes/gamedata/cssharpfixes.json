@@ -6,13 +6,6 @@
 			"linux": "C8 42 41 C7 85 ? ? ? ? ? ? ? ? 41 C7 85 ? ? ? ? ? ? ? ? E9"
 		}
 	},
-	"CPhysBox_Use": {
-		"signatures": {
-			"library": "server",
-			"windows": "4C 8B 43 ? 48 8D 8F ? ? ? ? 48 8B 13 E8 ? ? ? ? 48 8B 5C 24 ? 48 83 C4 ? 5F C3 CC CC CC CC 48 89 5C 24",
-			"linux": "49 8B 54 24 ? 45 31 C9 45 31 C0 C7 45 ? ? ? ? ? 49 8B 34 24 48 8D 4D ? 66 0F EF C0 48 C7 45 ? ? ? ? ? 48 8D BB ? ? ? ? E8 ? ? ? ? F6 45 ? ? 74 ? 48 8B 05 ? ? ? ? 48 8B 75 ? 48 8B 38 48 8B 07 FF 50 ? 48 83 C4"
-		}
-	},
 	"BotNavIgnore": {
 		"signatures": {
 			"library": "server",
@@ -23,8 +16,8 @@
 	"ServerMovementUnlock": {
 		"signatures": {
 			"library": "server",
-			"windows": "0F 86 B0 ? ? ? 0F 57 C0 0F 2E C2",
-			"linux": "0F 87 ? ? ? ? F3 0F 10 35 ? ? ? ? F3 0F 11 B5"
+			"windows": "0F 86 AF ? ? ? 0F 57 C0 0F 2E C2",
+			"linux": "0F 87 ? ? ? ? F3 0F 10 25 ? ? ? ? F3 0F 11 A5 ? ? ? ? 48 89 DE"
 		}
 	},
 	"ProcessUsercmds": {

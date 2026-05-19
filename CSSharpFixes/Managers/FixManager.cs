@@ -90,7 +90,6 @@ public class FixManager(PatchManager patchManager, DetourManager detourManager, 
         
         _fixes.Add(new WaterFix());
         _fixes.Add(new TriggerPushFix());
-        _fixes.Add(new CPhysBoxUseFix());
         _fixes.Add(new NavmeshLookupLagFix());
         _fixes.Add(new NoBlockFix());
         _fixes.Add(new ParticleManagerMsgFix());

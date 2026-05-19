@@ -8,7 +8,6 @@ CS# plugins. (Unlike cs2fixes, every feature in this plugin is optional and can 
 
 - Water Fix: Fixes being stuck to the floor underwater, allowing players to swim up.
 - trigger_push Fix: Reverts trigger_push behaviour to that seen in CS:GO.
-- CPhysBox Use Patch: Fixes CPhysBox use. Makes func_physbox pass itself as the caller in OnPlayerUse.
 - No Block: Prevent players from blocking each other. (Sets debris collision on every player).
 - Particle Manager Messages Fix: Attempt to fix lag/client crashes with a ParticleManager msg blocker.
 - Disable Team Messages: Disables team chat messages and wheel.
@@ -22,7 +21,6 @@ CS# plugins. (Unlike cs2fixes, every feature in this plugin is optional and can 
 
 - css_fixes_water_fix: Enable or disable the water fix. Default is 1.
 - css_fixes_trigger_push_fix: Enable or disable the trigger_push fix. Default is 0.
-- css_fixes_cphys_box_use_fix: Enable or disable the CPhysBox use patch. Default is 0.
 - css_fixes_no_block: Enable or disable the no block feature. Default is 0.
 - css_fixes_particle_manager_messages_fix: Enable or disable the Particle Manager Messages Fix. Default is 0.
 - css_fixes_disable_team_messages: Enable or disable team messages. Default is 0.
