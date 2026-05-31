@@ -48,7 +48,7 @@ public static class PlayerExtensions
         if (player is null) return false;
         if (!player.IsValid) return false;
         if (player.Handle == IntPtr.Zero) return false;
-        if (player.Connected != PlayerConnectedState.PlayerConnected) return false;
+        if (player.Connected != PlayerConnectedState.Connected) return false;
         return true;
     }
 

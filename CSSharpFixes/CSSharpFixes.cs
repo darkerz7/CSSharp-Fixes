@@ -24,7 +24,7 @@ using CSSharpFixes.Managers;
 
 namespace CSSharpFixes;
 
-[MinimumApiVersion(330)]
+[MinimumApiVersion(369)]
 public partial class CSSharpFixes(ModuleInformation moduleInformation, GameDataManager gameDataManager, DetourManager detourManager,
 	PatchManager patchManager, EventManager eventManager, FixManager fixManager, Configuration configuration) : BasePlugin
 {
