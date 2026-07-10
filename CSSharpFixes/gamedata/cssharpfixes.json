@@ -30,7 +30,7 @@
 	"TriggerPush_Touch": {
 		"signatures": {
 			"library": "server",
-			"windows": "40 55 53 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 02 48 8B F9",
+			"windows": "40 55 53 57 48 8B EC 48 81 EC ? ? ? ? 48 8B 02",
 			"linux": "55 48 89 E5 41 57 41 56 41 55 49 89 F5 41 54 53 48 89 FB 48 83 EC ? E8 ? ? ? ? 84 C0"
 		}
 	},
@@ -52,13 +52,13 @@
 		"signatures": {
 			"library": "server",
 			"windows": "75 ? 48 8B 03 48 8B CB FF 90 ? ? ? ? 84 C0 74 ? 48 8D 05",
-			"linux": "75 ? 48 8B 03 48 8D 15 ? ? ? ? 48 8B 80 ? ? ? ? 48 39 D0 75 ? 48 83 C4"
+			"linux": "75 ? 48 8B 03 48 89 DF FF 90 ? ? ? ? 84 C0 74 ? 48 8D 05"
 		}
 	},
 	"PassesTriggerFilters": {
 		"offsets": {
-			"windows": 273,
-			"linux": 274
+			"windows": 269,
+			"linux": 270
 		}
 	}
 }
