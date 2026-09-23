@@ -36,7 +36,7 @@ public class PatchManager(GameDataManager gameDataManager, ILogger<CSSharpFixes>
             AddServerPatch("FixWaterFloorJump", "CheckJumpButtonWater", "11 43");
             
             // Server Movement Unlocker
-            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "90 90 90 90 90 90");
+            AddServerPatch("ServerMovementUnlock", "ServerMovementUnlock", "EB");
 
 			// BotNavIgnore Fix
 			// Linux BotNavIgnore patch is now very similar to Windows

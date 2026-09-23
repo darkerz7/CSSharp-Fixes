@@ -2,8 +2,8 @@
 	"CheckJumpButtonWater": {
 		"signatures": {
 			"library": "server",
-			"windows": "C8 42 EB ? 4C 8B 77 ? 4D 39 66",
-			"linux": "C8 42 41 C7 85 ? ? ? ? ? ? ? ? 41 C7 85 ? ? ? ? ? ? ? ? E9"
+			"windows": "C8 42 EB ? 4C 8B 73 ? 4D 39 6E",
+			"linux": "C8 42 41 C7 84 24 ? ? ? ? ? ? ? ? 41 C7 84 24 ? ? ? ? ? ? ? ? E9"
 		}
 	},
 	"BotNavIgnore": {
@@ -17,7 +17,7 @@
 		"signatures": {
 			"library": "server",
 			"windows": "0F 86 AF ? ? ? 0F 57 C0 0F 2E C2",
-			"linux": "0F 87 ? ? ? ? F3 0F 10 25 ? ? ? ? F3 0F 11 A5 ? ? ? ? 48 89 DE"
+			"linux": "76 ? F3 0F 51 C0 F3 0F 7E DB 49 8B 06"
 		}
 	},
 	"ProcessUsercmds": {
@@ -38,13 +38,13 @@
 		"signatures": {
 			"library": "server",
 			"windows": "48 89 5C 24 ? 55 56 57 41 55 41 57 48 83 EC ? 44 8B 89",
-			"linux": "55 48 89 E5 41 57 49 89 FF 41 56 41 55 41 54 49 89 D4 53 48 89 F3 48 81 EC"
+			"linux": "55 48 89 E5 41 57 49 89 FF 41 56 41 55 41 54 49 89 D4 53 48 89 F3 48 81 EC ? ? ? ? 8B 97"
 		}
 	},
 	"EmitSoundVolumeFix": {
 		"signatures": {
 			"library": "server",
-			"windows": "41 B9 ? ? ? ? 48 89 5C 24 ? 49 8B D5",
+			"windows": "41 B9 ? ? ? ? 48 89 5D ? 49 8B D5",
 			"linux": "E8 ? ? ? ? F3 0F 6F 03 48 83 EC ? 45 31 C9 89 C2 45 31 C0 4C 89 FE 0F 11 04 24 8B 43 ? 4C 89 E7"
 		}
 	},
@@ -57,8 +57,8 @@
 	},
 	"PassesTriggerFilters": {
 		"offsets": {
-			"windows": 269,
-			"linux": 270
+			"windows": 271,
+			"linux": 272
 		}
 	}
 }
